@@ -6,7 +6,6 @@
 #include "timing.h"
 
 #define ARRAY_SIZE(x) (sizeof(x) / sizeof(*(x)))
-#define FONT_PATH "/usr/share/fonts/noto/NotoSans-Regular.ttf"
 
 static const struct test* current_test = NULL;
 
@@ -17,13 +16,12 @@ int main(int argc, char** argv) {
         return 1;
     }
 
-    struct nk_font_atlas* atlas;
-    nk_glfw3_font_stash_begin(&atlas);
-
-    struct nk_font* font = nk_font_atlas_add_from_file(atlas, FONT_PATH, 26, NULL);
-
-    nk_glfw3_font_stash_end();
-    nk_style_set_font(ctx, &font->handle);
+    // default font
+    {
+        struct nk_font_atlas* atlas;
+        nk_glfw3_font_stash_begin(&atlas);
+        nk_glfw3_font_stash_end();
+    }
 
     for(size_t i = 0; i < ARRAY_SIZE(tests); i++) {
         if(tests[i].init_fn) {
