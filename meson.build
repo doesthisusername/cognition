@@ -1,5 +1,5 @@
 project('cognition', 'c',
-    version : '0.0.1',
+    version : '0.0.2',
     license : 'MIT',
     default_options : [
         'c_std=c11',
@@ -21,7 +21,8 @@ executable(meson.project_name(),
         'src/tests.c',
         'src/timing.c',
 
-        'src/tests/reaction_time.c'
+        'src/tests/reaction_time.c',
+        'src/tests/latency.c',
     ],
     dependencies : [glfw, dl, m],
     include_directories : 'ext',

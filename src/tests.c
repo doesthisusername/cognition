@@ -9,4 +9,10 @@ const struct test tests[TEST_COUNT] = {
         .init_fn = NULL,
         .reset_fn = reaction_time_reset,
     },
+    {
+        .name = "latency",
+        .draw_fn = latency,
+        .init_fn = NULL,
+        .reset_fn = latency_reset,
+    },
 };

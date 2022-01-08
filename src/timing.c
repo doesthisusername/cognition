@@ -5,7 +5,7 @@
 #include "timing.h"
 
 float frand() {
-    // basically interpolate from `0..RAND_MAX` `to 0..1`
+    // basically interpolate from `0..RAND_MAX` to `0..1`.
     const float multiplier = (float)(1.0 / (double)RAND_MAX);
 
     return rand() * multiplier;
